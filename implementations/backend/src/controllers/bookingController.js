@@ -45,4 +45,36 @@ const getMyBookings = async (req, res) => {
   }
 };
 
-module.exports = { createBooking, getMyBookings };
+const cancelBooking = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user_id = req.user.id;
+
+    // Check if booking exists and belongs to the user
+    const [bookings] = await db.query(
+      'SELECT * FROM bookings WHERE id = ? AND user_id = ?',
+      [id, user_id]
+    );
+
+    if (bookings.length === 0)
+      return res.status(404).json({ message: 'Booking not found' });
+
+    const booking = bookings[0];
+
+    // Check if booking can be cancelled (not already cancelled)
+    if (booking.status === 'cancelled')
+      return res.status(400).json({ message: 'This booking is already cancelled' });
+
+    // Update booking status to cancelled
+    await db.query('UPDATE bookings SET status = ? WHERE id = ?', ['cancelled', id]);
+
+    // Set car back to available
+    await db.query('UPDATE cars SET is_available = TRUE WHERE id = ?', [booking.car_id]);
+
+    res.json({ message: 'Booking cancelled successfully' });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+};
+
+module.exports = { createBooking, getMyBookings, cancelBooking };
