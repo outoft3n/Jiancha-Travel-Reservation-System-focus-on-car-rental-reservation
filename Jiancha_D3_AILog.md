@@ -32,3 +32,10 @@
 - **Accepted:** All controllers, middleware, updated routes
 - **Rejected:** None
 - **Verification:** curl POST /api/auth/register returned 201, curl GET /api/cars returned 3 cars from DB
+
+## Entry 5 — Unit Tests
+- **Date:** 2026-02-28
+- **Prompt used:** "Write Jest unit tests for auth, car, and booking endpoints using supertest"
+- **Accepted:** All test files, jest config
+- **Rejected:** None
+- **Verification:** npm test — 15/15 passed, 87.59% statement coverage
