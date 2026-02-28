@@ -86,3 +86,11 @@
   - curl -I https://bug-free-waddle-jx47gpvxg9wcqxw-8080.app.github.dev/api/cars returned HTTP 200
   - Frontend /cars page successfully loaded car listing from backend
   - Register, Login, Book Car all working end-to-end
+
+## Entry 11 — Frontend Environment Config
+- **Date:** 2026-02-28
+- **Tool:** Claude AI  
+- **Prompt used:** "Configure VITE_API_URL env variable to use Codespace backend URL instead of localhost"
+- **Accepted:** .env with VITE_API_URL, updated api.js to use import.meta.env
+- **Rejected:** Hardcoded localhost (not accessible from browser in Codespace)
+- **Verification:** Network tab in browser confirmed requests going to correct Codespace URL
