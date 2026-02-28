@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 
 const authRoutes = require('./routes/authRoutes');
@@ -11,8 +10,16 @@ const app = express();
 
 app.set('trust proxy', 1);
 
-app.use(helmet());
-app.use(cors());
+// CORS ต้องอยู่ก่อน middleware อื่นทั้งหมด
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+}));
+app.options('*', cors());
+
 app.use(express.json());
 app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
 

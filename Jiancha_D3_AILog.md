@@ -75,3 +75,14 @@
 - **Accepted:** Updated index.css to use `@import tailwindcss`, installed tailwindcss-animate
 - **Rejected:** Downgrading Tailwind version (would break shadcn)
 - **Verification:** Error dismissed, `npm run dev` runs clean, UI renders correctly
+
+## Entry 10 — Fix CORS and Codespace Network Configuration
+- **Date:** 2026-02-28
+- **Tool:** Claude AI
+- **Prompt used:** "Fix CORS policy error between frontend and backend in GitHub Codespace environment"
+- **Accepted:** Removed helmet middleware, added explicit CORS config with OPTIONS preflight, set port 8080 to Public visibility
+- **Rejected:** CORS with helmet (caused header conflicts), localhost baseURL (not valid in Codespace)
+- **Verification:** 
+  - curl -I https://bug-free-waddle-jx47gpvxg9wcqxw-8080.app.github.dev/api/cars returned HTTP 200
+  - Frontend /cars page successfully loaded car listing from backend
+  - Register, Login, Book Car all working end-to-end
