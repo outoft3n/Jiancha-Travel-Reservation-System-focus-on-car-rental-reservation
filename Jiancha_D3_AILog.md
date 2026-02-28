@@ -67,3 +67,11 @@
   - Manually tested all pages: Home, Cars, Login, Register, Bookings
   - Confirmed Flights and Hotels cards show "Coming Soon" and are disabled
   - Confirmed Car Rental card links to /cars and booking still works
+
+## Entry 9 — Frontend Bug Fix (Tailwind v4 + shadcn compatibility)
+- **Date:** 2026-02-28
+- **Tool:** Claude AI
+- **Prompt used:** "Fix tailwindcss PostCSS error bg-background unknown utility class in Vite + shadcn setup"
+- **Accepted:** Updated index.css to use `@import tailwindcss`, installed tailwindcss-animate
+- **Rejected:** Downgrading Tailwind version (would break shadcn)
+- **Verification:** Error dismissed, `npm run dev` runs clean, UI renders correctly
