@@ -1,5 +1,16 @@
 # Travel Naja Car Rental Reservation System
 
+## 🌐 Live Demo
+
+- **Frontend:** https://jiancha-travel-reservation-system-f.vercel.app/
+
+### 🔑 Test Accounts
+
+| Role | Email | Password |
+|------|-------|----------|
+| Staff | staff@jiancha.com | staff1234 |
+| Member | (register via app) | - |
+
 This repository contains a full-stack car rental reservation system built as part of the Travel Naja platform.  It demonstrates a simple RESTful API backed by a MySQL database and a modern React/Tailwind frontend using shadcn/ui components.  The backend handles user authentication, car listings, bookings, cancellations, and staff reporting.
 
 ---
