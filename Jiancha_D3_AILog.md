@@ -126,3 +126,9 @@
 - **Accepted:** tests/staff.test.js, updated tests/booking.test.js with new test cases
 - **Rejected:** None
 - **Verification:** npm test — all tests passed
+
+## Entry 18 — Release v1.0
+- **Date:** 2026-03-10
+- **Tool:** Manual
+- **Action:** Merged dev branch into main, tagged release v1.0
+- **Verification:** GitHub Actions green on main branch, all features working end-to-end
